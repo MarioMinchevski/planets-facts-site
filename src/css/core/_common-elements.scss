@@ -1,0 +1,47 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+body {
+    min-height: 100vh;
+    font-family: $font-family-base;
+    background-color: $color-neutral-base-secondary;
+    background-image: url('/background-stars.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: $color-neutral-base;
+}
+
+.planet-page {
+    padding: 7.4rem 11.35% 4rem;
+
+    @include laptop-m-styles {
+        padding: 7.4rem 5% 0rem;
+    }
+
+    @include laptop-s-styles {
+        padding: 0rem 5% 2rem;
+    }
+
+    @include mobile-l-styles {
+        padding: 0rem 0rem 8rem;
+        position: relative;
+    }
+
+    .planet-page-main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+
+        @include laptop-s-styles {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    .planet-overview-info {
+        @include laptop-s-styles {
+            width: 100%;
+        }
+    }
+}

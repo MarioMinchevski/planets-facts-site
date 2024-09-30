@@ -1,0 +1,52 @@
+@use '../abstracts/variables' as *;
+
+// RESPONSIVE LAPTOP FIRST DESIGN MIXINS
+@mixin laptop-l-styles {
+    @media (max-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin laptop-m-styles {
+    @media (max-width: 1250px) {
+        @content;
+    }
+}
+
+@mixin laptop-s-styles {
+    @media (max-width: 1050px) {
+        @content;
+    }
+}
+
+@mixin tablet-styles {
+    @media (max-width: 850px) {
+        @content;
+    }
+}
+
+
+@mixin tablet-s-styles {
+    @media (max-width: 690px) {
+        @content;
+    }
+}
+
+
+@mixin mobile-l-styles {
+    @media (max-width: 600px) {
+        @content;
+    }
+}
+
+@mixin mobile-m-styles {
+    @media (max-width: 375px) {
+        @content;
+    }
+}
+
+@mixin mobile-s-styles {
+    @media (max-width: 320px) {
+        @content;
+    }
+}

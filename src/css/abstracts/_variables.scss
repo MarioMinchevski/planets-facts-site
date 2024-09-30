@@ -1,0 +1,58 @@
+@use 'sass:math';
+
+@function rem-calc($size) {
+    @return (math.div($size, 16)) * 1rem;
+}
+
+// Font settings
+
+$font-family-base: "League Spartan", sans-serif;
+$font-family-secondary: "Antonio", sans-serif;
+
+// font weight 
+
+$font-weight-regular: 400;
+
+$font-weight-bold: 700;
+$font-weight-medium: 500;
+$font-weight-light: 300;
+
+// font size
+
+$font-size-base: rem-calc(16);
+
+$font-size-body-large: rem-calc(16);
+$font-size-body-base: rem-calc(14);
+$font-size-body-medium: rem-calc(11);
+
+$font-size-various-primary: rem-calc(12);
+$font-size-various-secondary: rem-calc(9);
+$font-size-various-tertiary: rem-calc(8);
+$font-size-various-quaternary: rem-calc(24);
+$font-size-various-quinary: rem-calc(20);
+$font-size-various-senary: rem-calc(15);
+
+// headings size
+
+$font-size-headidng-main-base: rem-calc(80);
+$font-size-headidng-main-medium: rem-calc(48);
+$font-size-headidng-main-small: rem-calc(40);
+
+$font-size-headidng-main-nav: rem-calc(28);
+
+// Color settings
+
+$color-neutral-base: #ffffff;
+$color-neutral-base-secondary: #070724;
+$color-neutral-base-tertiary: #38384F;
+$color-neutral-base-quaternary: #838391;
+$color-neutral-base-quinary: #313148;
+
+$color-primary: #419EBB;
+$color-secondary: #EDA249;
+$color-tertiary: #6f2ed6;
+$color-quaternary: #D14C32;
+$color-quinary: #D83A34;
+$color-senary: #CD5120;
+$color-septenary: #1ec2a4;
+$color-octonary: #2d68f0;

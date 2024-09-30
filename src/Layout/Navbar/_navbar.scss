@@ -1,0 +1,247 @@
+@use '../../css/abstracts/mixins' as *;
+@use '../../css/abstracts/variables' as *;
+
+.navbar {
+    padding: 1.75rem 2.563rem 1.6rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba($color-neutral-base, 0.20);
+
+    h1 {
+        text-transform: uppercase;
+        font-size: $font-size-headidng-main-nav;
+        font-family: $font-family-secondary;
+
+        line-height: 1;
+        padding-bottom: 0.35rem;
+    }
+
+    @include laptop-s-styles {
+        flex-direction: column;
+
+        padding: 1.75rem 3.125rem 1.6rem;
+
+        h1 {
+            margin-bottom: 2.7rem;
+        }
+    }
+
+    @include tablet-s-styles {
+        padding: 1.75rem 1.5rem 1.6rem 2rem;
+    }
+
+    @include mobile-l-styles {
+        flex-direction: row;
+        padding: 1rem 1.5rem;
+
+        h1 {
+            margin-bottom: 0rem;
+        }
+    }
+
+    .hamburger-icon {
+        display: none;
+
+        @include mobile-l-styles {
+            display: block;
+            cursor: pointer;
+            fill: $color-neutral-base;
+            transition: all 300ms ease-in-out;
+
+
+            &:hover,
+            &.active {
+                fill: #44445A;
+            }
+        }
+    }
+
+    .navbar__menu {
+        display: flex;
+        align-items: center;
+        gap: 2.063rem;
+
+        @include laptop-s-styles {
+            gap: 0;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        @include mobile-l-styles {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 67px;
+            height: 100vh;
+
+            background-color: $color-neutral-base-secondary;
+            z-index: 99999;
+
+            flex-direction: column;
+            justify-content: unset;
+
+            padding-inline: 1.5rem;
+            padding-top: 1.6rem;
+
+            &.active {
+                display: block;
+            }
+        }
+
+        .navbar__menu-item {
+            line-height: 1;
+
+            a {
+                line-height: 1;
+                font-size: $font-size-body-base;
+                font-weight: $font-weight-bold;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: rgba($color-neutral-base, 0.75);
+                transition: color 300ms ease-in-out;
+                position: relative;
+
+                &::before {
+                    transition: width 300ms ease-in-out;
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    top: -2.4rem;
+                    height: 4px;
+                    width: 0;
+
+                    @include laptop-s-styles {
+                        left: 0;
+                        top: 2.25rem;
+                        height: 4px;
+                        width: 0;
+                    }
+
+                    @include mobile-l-styles {
+                        left: 0;
+                        top: 0;
+                        height: 0px;
+                        width: 0;
+                    }
+                }
+
+
+                &::after {
+
+                    @include mobile-l-styles {
+
+
+                        position: absolute;
+                        content: "";
+                        left: -2.85rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+
+                        height: 20px;
+                        width: 20px;
+                        border-radius: 100ch;
+                    }
+                }
+
+                &:hover::before {
+                    width: 100%;
+                }
+
+                &:hover {
+                    color: $color-neutral-base;
+                }
+
+                @include mobile-l-styles {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    line-height: 0.7;
+                }
+
+                .mobile-icon {
+                    display: none;
+
+                    @include mobile-l-styles {
+                        display: block;
+                    }
+                }
+            }
+
+            @include mobile-l-styles {
+                padding-block: 1.25rem;
+                padding-left: 2.85rem;
+                width: 100%;
+
+                &:not(:last-of-type) {
+                    border-bottom: 1px solid rgba($color: $color-neutral-base, $alpha: 0.1);
+                }
+            }
+
+            &.planet-mercury a::before {
+                background-color: $color-primary;
+            }
+
+            &.planet-mercury a::after {
+                background-color: #DEF4FC;
+            }
+
+            &.planet-venus a::before {
+                background-color: $color-secondary;
+            }
+
+            &.planet-venus a::after {
+                background-color: #F7CC7F;
+            }
+
+            &.planet-earth a::before {
+                background-color: $color-tertiary;
+            }
+
+            &.planet-earth a::after {
+                background-color: #545BFE;
+            }
+
+            &.planet-mars a::before {
+                background-color: $color-quaternary;
+            }
+
+            &.planet-mars a::after {
+                background-color: #FF6A45;
+            }
+
+            &.planet-jupiter a::before {
+                background-color: $color-quinary;
+            }
+
+            &.planet-jupiter a::after {
+                background-color: #ECAD7A;
+            }
+
+            &.planet-saturn a::before {
+                background-color: $color-senary;
+            }
+
+            &.planet-saturn a::after {
+                background-color: #FCCB6B;
+            }
+
+            &.planet-uranus a::before {
+                background-color: $color-septenary;
+            }
+
+            &.planet-uranus a::after {
+                background-color: #65F0D5;
+            }
+
+            &.planet-neptune a::before {
+                background-color: $color-octonary;
+            }
+
+            &.planet-neptune a::after {
+                background-color: #497EFA;
+            }
+        }
+    }
+}

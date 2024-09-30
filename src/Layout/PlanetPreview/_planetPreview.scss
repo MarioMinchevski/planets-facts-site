@@ -1,0 +1,108 @@
+@use '../../css/abstracts/mixins' as *;
+@use '../../css/abstracts/variables' as *;
+
+.planet-preview-image-box {
+    margin-inline: auto;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include laptop-s-styles {
+        justify-content: center;
+        height: 29.625rem;
+
+        img {
+            width: 63.5%;
+        }
+    }
+
+    @include mobile-l-styles {
+        order: 0;
+        height: 19.625rem;
+        margin-top: 52px;
+
+        img {
+            width: 100%;
+        }
+
+        &.mercury {
+            img {
+                max-width: 111px;
+            }
+        }
+
+        &.venus {
+            img {
+                max-width: 154px;
+            }
+        }
+
+        &.earth {
+            img {
+                max-width: 173px;
+            }
+        }
+
+        &.mars {
+            img {
+                max-width: 129px;
+            }
+        }
+
+        &.jupiter {
+            img {
+                max-width: 224px;
+            }
+        }
+
+        &.saturn {
+            img {
+                max-width: 256px;
+            }
+        }
+
+        &.uranus {
+            img {
+                max-width: 176px;
+            }
+        }
+
+        &.neptune {
+            img {
+                max-width: 173px;
+            }
+        }
+    }
+
+    .geology-img {
+        position: absolute;
+        height: 199px;
+        width: 163px;
+
+        left: 50% !important;
+        bottom: 0rem !important;
+        transform: translate(-50%, 0%) !important;
+
+        @include laptop-s-styles {
+            height: 133px;
+            width: 109px;
+
+            bottom: 2.5rem;
+        }
+
+        @include mobile-l-styles {
+            height: 89px;
+            width: 73px;
+
+            bottom: 2.25rem;
+        }
+    }
+
+    .internal-img {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+}

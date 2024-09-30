@@ -1,0 +1,106 @@
+@use '../../css/abstracts/mixins' as *;
+@use '../../css/abstracts/variables' as *;
+
+.planet-desc {
+    max-width: 350px;
+    margin-left: auto;
+
+    @include laptop-s-styles {
+        max-width: unset;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+
+    @include mobile-l-styles {
+        flex-direction: column;
+    }
+
+    .planet-desc__name-text-wrap {
+        @include laptop-s-styles {
+            max-width: 500px;
+        }
+
+        @include tablet-styles {
+            max-width: 339px;
+        }
+
+        @include mobile-l-styles {
+            order: 1;
+            max-width: unset;
+            padding-inline: 1.5rem;
+        }
+    }
+
+    .planet-desc__name {
+        font-family: $font-family-secondary;
+        font-size: $font-size-headidng-main-base;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+
+        @include laptop-s-styles {
+            margin-bottom: 0;
+        }
+
+        @include tablet-styles {
+            font-size: $font-size-headidng-main-medium;
+            margin-bottom: 1.25rem;
+        }
+
+        @include mobile-l-styles {
+            text-align: center;
+            font-size: $font-size-headidng-main-small;
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    .planet-desc__text {
+        font-size: $font-size-body-large;
+        font-weight: $font-weight-light;
+        line-height: 25px;
+        color: $color-neutral-base;
+        margin-bottom: 1.5rem;
+
+        letter-spacing: 1px;
+
+        @include tablet-styles {
+            font-size: $font-size-body-base;
+            margin-bottom: 2rem;
+        }
+
+        @include mobile-l-styles {
+            text-align: center;
+            line-height: 23px;
+            letter-spacing: 1.3px;
+        }
+    }
+
+    .planet-desc__source {
+        font-size: $font-size-body-large;
+        color: $color-neutral-base-quaternary;
+        display: flex;
+        align-items: center;
+
+        @include tablet-styles {
+            font-size: $font-size-body-base;
+        }
+
+        @include mobile-l-styles {
+            justify-content: center;
+        }
+
+        a {
+            font-weight: $font-weight-bold;
+            color: $color-neutral-base-quaternary;
+            text-decoration: underline;
+            display: flex;
+            align-items: center;
+            margin-left: 0.5rem;
+
+            svg {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}
