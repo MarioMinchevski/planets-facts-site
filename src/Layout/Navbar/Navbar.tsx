@@ -3,14 +3,13 @@ import { fetchAllPLanets } from "../../utils/getAllPlanets"
 import { NavbarItem } from "./NavbarItem"
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
-import { motion } from "framer-motion"
-import { navbarAnimationVariants } from "../../utils/animationVariants"
+import { AnimatePresence, motion } from "framer-motion"
+import { navbarAnimationVariants, navbarMenuVariants } from "../../utils/animationVariants"
 
 
 export function Navbar() {
     const [isActive, setIsActive] = useState(false)
     const location = useLocation()
-
 
     const { data: allPlanets, error, isLoading } = useQuery({
         queryKey: ['planetsData'],
@@ -37,15 +36,27 @@ export function Navbar() {
                 className="navbar"
             >
                 <h1>the planets</h1>
-                <ul className={`navbar__menu ${isActive ? 'active' : ''}`}>
-                    {allPlanets?.map((el, idx) =>
-                        <NavbarItem key={`${el.name}-${idx}`} {...el} />
+                <AnimatePresence>
+                    {isActive && (
+                        <motion.ul
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            variants={navbarMenuVariants}
+                            className={`navbar__menu ${isActive ? 'active' : ''}`}
+                        >
+                            {allPlanets?.map((el, idx) =>
+                                <NavbarItem key={`${el.name}-${idx}`} {...el} />
+                            )}
+                        </motion.ul>
                     )}
-                </ul>
+                </AnimatePresence>
                 <svg
                     onClick={handleNavVisibility}
-                    className="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="17"><g ><path d="M0 0h24v3H0zM0 7h24v3H0zM0 14h24v3H0z" /></g></svg>
-            </motion.nav >
+                    className="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="17">
+                    <g><path d="M0 0h24v3H0zM0 7h24v3H0zM0 14h24v3H0z" /></g>
+                </svg>
+            </motion.nav>
         </>
     )
 }
